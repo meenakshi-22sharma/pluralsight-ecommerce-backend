@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ecommerce
+  profiles:
+    active: default
+
+aws:
+  paramstore:
+    enabled: true
+    prefix: /config
+    name: ecommerce
+    profile: default

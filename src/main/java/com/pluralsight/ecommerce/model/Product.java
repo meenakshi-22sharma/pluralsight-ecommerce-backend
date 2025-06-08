@@ -18,7 +18,7 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="category_id", nullable = false)
-    Category category;
+    private Category category;
 
     public Product(){
 
@@ -80,4 +80,5 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

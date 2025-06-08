@@ -26,8 +26,8 @@ public class ProductController {
     @PostMapping("/")
     public ResponseEntity<Void> createProduct(@RequestBody ProductDto productDto){
         Optional<Category> optionalCategory = categoryService.readCategory(productDto.getCategoryId());
-        if (!optionalCategory.isPresent()) {
-            return new ResponseEntity<>( HttpStatus.CONFLICT);
+        if (optionalCategory.isEmpty()) {
+            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
         }
         Category category = optionalCategory.get();
         productService.addProduct(productDto, category);
